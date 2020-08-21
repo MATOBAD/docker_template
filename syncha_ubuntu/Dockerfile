@@ -40,6 +40,8 @@ RUN apt update && \
     cd .. && \
     rm ${CABOCHA_VERSION}.tar.bz2 && \
     echo "cabocha install done" && \
-    wget -O syncha.tar.gz 'https://drive.google.com/uc?export=download&id=0B4wOZ_esMVcMazQ0eGdtMnBCaWs' && \
-    tar xzf syncha.tar.gz && \
-    ldconfig
+    wget -O ${SYNCHA_VERSION}.tar.gz 'https://drive.google.com/uc?export=download&id=0B4wOZ_esMVcMazQ0eGdtMnBCaWs' && \
+    tar xzf ${SYNCHA_VERSION}.tar.gz && \
+    ldconfig && \
+    apt remove --purge -y wget curl && \
+    rm -rf /var/lib/apt/lists/*
